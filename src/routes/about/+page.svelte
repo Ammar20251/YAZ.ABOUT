@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from '$components/ui/Button.svelte';
   import FadeUp from '$components/motion/FadeUp.svelte';
+  import ImpactStats from '$components/sections/ImpactStats.svelte';
 
   const milestones = [
     {
@@ -77,7 +78,7 @@
       <!-- horizontal line for desktop -->
       <div
         aria-hidden="true"
-        class="absolute top-1/2 left-0 right-0 h-px bg-line -translate-y-1/2 hidden md:block"
+        class="absolute left-0 right-0 h-px bg-line hidden md:block md:top-8 md:-translate-y-1/2"
       ></div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative">
@@ -87,29 +88,18 @@
               <!-- node dot -->
               <div
                 aria-hidden="true"
-                class="absolute top-1/2 -left-1 md:left-6 w-4 h-4 rounded-pill border-4 border-surface z-10
-                       md:-translate-y-1/2
+                class="absolute top-1/2 -left-1 -translate-y-1/2 w-4 h-4 rounded-pill border-4 border-surface z-10
+                       md:top-8 md:left-1/2 md:-translate-x-1/2
                        {m.highlight ? 'bg-lime-bright' : 'bg-brand-teal'}"
               ></div>
 
               <div
-                class="hover-lift bg-white p-6 md:p-7 rounded-lg border border-line ml-6 md:ml-0
-                       {m.highlight
-                  ? 'md:mt-16 border-brand-teal/40 bg-brand-teal text-white'
-                  : 'md:mt-16'}"
+                class="hover-lift bg-white p-6 md:p-7 rounded-lg border ml-6 md:ml-0 md:mt-16
+                       {m.highlight ? 'border-brand-teal shadow-md' : 'border-line'}"
               >
-                <span
-                  class="block font-display text-h2 mb-2
-                         {m.highlight ? 'text-white' : 'text-brand-teal'}"
-                >{m.year}</span>
-                <h3
-                  class="text-body-lg font-display font-semibold mb-2
-                         {m.highlight ? 'text-white' : 'text-ink'}"
-                >{m.title}</h3>
-                <p
-                  class="text-body
-                         {m.highlight ? 'text-sky-tint' : 'text-ink-2'}"
-                >{m.body}</p>
+                <span class="block font-display text-h2 text-brand-teal mb-2">{m.year}</span>
+                <h3 class="text-body-lg font-display font-semibold text-ink mb-2">{m.title}</h3>
+                <p class="text-body text-ink-2">{m.body}</p>
               </div>
             </div>
           {/each}
@@ -118,3 +108,6 @@
     </div>
   </div>
 </section>
+
+<!-- IMPACT -->
+<ImpactStats surface="bg-white" />

@@ -51,7 +51,7 @@
     aria-invalid={!!error || undefined}
     aria-describedby={describedBy}
     class={[
-      'h-11 px-4 rounded-md bg-white text-body text-ink',
+      'h-11 w-full px-4 rounded-md bg-white text-body text-ink',
       'border-[1.5px]',
       error ? 'border-danger' : 'border-line',
       'placeholder:text-ink-3',

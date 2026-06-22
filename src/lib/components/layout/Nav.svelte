@@ -17,6 +17,7 @@
   const siteName = env.PUBLIC_SITE_NAME ?? 'YAZ Development';
 
   const links = [
+    { href: '/', label: 'Home' },
     { href: '/projects', label: 'Projects' },
     { href: '/services', label: 'Services' },
     { href: '/devices', label: 'Devices' },
@@ -25,7 +26,9 @@
   ];
 
   const isActive = (href: string) =>
-    $page.url.pathname === href || $page.url.pathname.startsWith(`${href}/`);
+    href === '/'
+      ? $page.url.pathname === '/'
+      : $page.url.pathname === href || $page.url.pathname.startsWith(`${href}/`);
 </script>
 
 <nav

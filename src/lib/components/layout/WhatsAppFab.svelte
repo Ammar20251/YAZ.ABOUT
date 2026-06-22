@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { env } from '$env/dynamic/public';
+  import { siteContact } from '$lib/data/site-contact';
 
   interface Props {
-    /** Phone number override (digits only). Falls back to env. */
+    /** Phone number override (digits only). Falls back to site contact. */
     number?: string;
     /** Prefilled message */
     message?: string;
   }
   let { number, message = '' }: Props = $props();
 
-  const phone = $derived(number ?? env.PUBLIC_WHATSAPP_NUMBER ?? '966553932623');
+  const phone = $derived(number ?? siteContact.whatsappNumber);
   const href = $derived(
     `https://wa.me/${phone}${message ? `?text=${encodeURIComponent(message)}` : ''}`
   );

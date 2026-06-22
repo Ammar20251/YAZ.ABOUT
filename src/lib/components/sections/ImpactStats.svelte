@@ -1,6 +1,7 @@
 <script lang="ts">
   import CountUp from '$components/motion/CountUp.svelte';
   import FadeUp from '$components/motion/FadeUp.svelte';
+  import { impactStats } from '$lib/data/site-contact';
 
   interface Props {
     eyebrow?: string;
@@ -15,12 +16,7 @@
     surface = 'bg-white'
   }: Props = $props();
 
-  const stats = [
-    { value: 221, suffix: '+', label: 'Projects Done' },
-    { value: 262, suffix: '+', label: 'Customers' },
-    { value: 14, suffix: '+', label: 'Projects In Process' },
-    { value: 255, suffix: '+', label: 'Satisfied Clients' }
-  ];
+  const stats = impactStats;
 </script>
 
 <section

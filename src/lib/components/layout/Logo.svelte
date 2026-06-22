@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { env } from '$env/dynamic/public';
+  import { siteContact } from '$lib/data/site-contact';
 
   interface Props {
     /** Nav bar (compact) or footer (slightly larger). */
@@ -9,7 +9,7 @@
 
   let { size = 'nav', class: extra = '' }: Props = $props();
 
-  const siteName = env.PUBLIC_SITE_NAME ?? 'YAZ Development Contracting Company Ltd.';
+  const siteName = siteContact.legalName;
   const heightClass = size === 'footer' ? 'h-16 md:h-20' : 'h-11 md:h-14';
   const maxWidthClass = size === 'footer' ? 'max-w-[min(100%,20rem)]' : 'max-w-[min(100%,17rem)]';
 </script>

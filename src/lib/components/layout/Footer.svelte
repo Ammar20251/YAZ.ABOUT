@@ -1,20 +1,14 @@
 <script lang="ts">
-  import { env } from '$env/dynamic/public';
+  import { siteContact, getSocialLinks } from '$lib/data/site-contact';
   import Logo from '$components/layout/Logo.svelte';
 
-  const siteName = env.PUBLIC_SITE_NAME ?? 'YAZ Development';
-  const phone1 = env.PUBLIC_CONTACT_PHONE_1 ?? '+966 55 393 2623';
-  const phone2 = env.PUBLIC_CONTACT_PHONE_2 ?? '+966 53 900 8757';
-  const email = env.PUBLIC_CONTACT_EMAIL ?? 'info@yazdv.com';
-  const office = env.PUBLIC_OFFICE_ADDRESS ?? 'Riyadh, Saudi Arabia';
+  const phone1 = siteContact.phone1;
+  const phone2 = siteContact.phone2;
+  const email = siteContact.email;
+  const office = siteContact.officeFull;
+  const siteName = siteContact.legalName;
 
-  const socials = [
-    { label: 'LinkedIn', href: env.PUBLIC_LINKEDIN_URL },
-    { label: 'YouTube', href: env.PUBLIC_YOUTUBE_URL },
-    { label: 'Instagram', href: env.PUBLIC_INSTAGRAM_URL },
-    { label: 'Facebook', href: env.PUBLIC_FACEBOOK_URL },
-    { label: 'TikTok', href: env.PUBLIC_TIKTOK_URL }
-  ].filter((s): s is { label: string; href: string } => Boolean(s.href));
+  const socials = getSocialLinks();
 
   const navCols = [
     {

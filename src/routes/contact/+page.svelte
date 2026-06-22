@@ -3,33 +3,19 @@
   import Input from '$components/ui/Input.svelte';
   import Textarea from '$components/ui/Textarea.svelte';
   import FadeUp from '$components/motion/FadeUp.svelte';
-  import ImpactStats from '$components/sections/ImpactStats.svelte';
+  import {
+    siteContact,
+    getSocialLinks,
+    mapEmbedUrl,
+    mapExternalUrl
+  } from '$lib/data/site-contact';
 
   let name = $state('');
   let email = $state('');
   let message = $state('');
   let sent = $state(false);
 
-  const address = {
-    line1: 'King Abdulaziz Road, King Fahd District',
-    line2: 'Riyadh 12274 — Saudi Arabia'
-  };
-  const phones = ['+966 55 393 26 23', '+966 53 900 87 57'];
-  const email_addr = 'info@yazdv.com';
-
-  // Riyadh — King Fahd District (24.752409, 46.676834)
-  const mapEmbed =
-    'https://maps.google.com/maps?q=24.752409,46.676834&hl=en&z=15&output=embed';
-  const mapLink =
-    'https://www.google.com/maps?ll=24.752409,46.676834&z=15&cid=16021657983095926117';
-
-  const socials = [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/', svg: 'linkedin' },
-    { label: 'YouTube', href: 'https://www.youtube.com/', svg: 'youtube' },
-    { label: 'TikTok', href: 'https://www.tiktok.com/', svg: 'tiktok' },
-    { label: 'Facebook', href: 'https://www.facebook.com/', svg: 'facebook' },
-    { label: 'Instagram', href: 'https://www.instagram.com/', svg: 'instagram' }
-  ] as const;
+  const socials = getSocialLinks();
 
   function onSubmit(e: SubmitEvent) {
     e.preventDefault();
@@ -68,9 +54,6 @@
     </FadeUp>
   </div>
 </section>
-
-<!-- IMPACT -->
-<ImpactStats surface="bg-white" />
 
 <!-- CONTACT GRID -->
 <section class="bg-surface py-16 md:py-24 px-4 md:px-10">
@@ -142,7 +125,7 @@
         <div class="relative rounded-xl overflow-hidden border border-line shadow-sm bg-surface-2 aspect-[4/3] lg:aspect-square">
           <iframe
             title="YAZ Development office on Google Maps"
-            src={mapEmbed}
+            src={mapEmbedUrl}
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
@@ -150,7 +133,7 @@
           ></iframe>
         </div>
         <a
-        href={mapLink}
+        href={mapExternalUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="mt-3 inline-flex items-center gap-1 text-label-mono text-brand-teal hover:text-deep-teal transition-colors"
@@ -169,7 +152,7 @@
         <div>
           <h3 class="font-display text-h3 text-ink mb-2">Address</h3>
           <address class="not-italic text-body text-ink-2 leading-relaxed">
-            {address.line1}<br />{address.line2}
+            {siteContact.addressLine1}<br />{siteContact.addressLine2}
           </address>
         </div>
       </div>
@@ -180,7 +163,7 @@
         <div>
           <h3 class="font-display text-h3 text-ink mb-2">Phone</h3>
           <div class="flex flex-col gap-1">
-            {#each phones as p (p)}
+            {#each siteContact.phones as p (p)}
               <a
                 href={`tel:${p.replace(/\s/g, '')}`}
                 class="text-body text-ink-2 hover:text-brand-teal transition-colors"
@@ -196,9 +179,9 @@
         <div>
           <h3 class="font-display text-h3 text-ink mb-2">Email</h3>
           <a
-            href={`mailto:${email_addr}`}
+            href={`mailto:${siteContact.email}`}
             class="text-body text-ink-2 hover:text-brand-teal transition-colors break-all"
-          >{email_addr}</a>
+          >{siteContact.email}</a>
         </div>
       </div>
 

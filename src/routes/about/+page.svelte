@@ -2,6 +2,7 @@
   import Button from '$components/ui/Button.svelte';
   import FadeUp from '$components/motion/FadeUp.svelte';
   import ImpactStats from '$components/sections/ImpactStats.svelte';
+  import AboutYaz from '$components/sections/AboutYaz.svelte';
 
   const milestones = [
     {
@@ -62,6 +63,8 @@
     </FadeUp>
   </div>
 </section>
+
+<AboutYaz />
 
 <!-- TIMELINE -->
 <section id="timeline" class="bg-surface py-16 md:py-24 px-4 md:px-10 overflow-hidden">

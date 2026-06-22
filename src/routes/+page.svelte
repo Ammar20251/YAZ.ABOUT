@@ -7,6 +7,7 @@
   import CountUp from '$components/motion/CountUp.svelte';
   import AboutYaz from '$components/sections/AboutYaz.svelte';
   import ImpactStats from '$components/sections/ImpactStats.svelte';
+  import RecentProjects from '$components/sections/RecentProjects.svelte';
   import { startHero } from '$animations/hero';
 
   let heroEl: HTMLElement | undefined = $state();
@@ -160,6 +161,9 @@
 
 <!-- IMPACT — By the Numbers -->
 <ImpactStats />
+
+<!-- RECENT PROJECTS -->
+<RecentProjects showViewAll />
 
 <!-- ABOUT -->
 <AboutYaz />

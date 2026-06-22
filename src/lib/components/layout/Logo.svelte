@@ -10,7 +10,8 @@
   let { size = 'nav', class: extra = '' }: Props = $props();
 
   const siteName = env.PUBLIC_SITE_NAME ?? 'YAZ Development Contracting Company Ltd.';
-  const heightClass = size === 'footer' ? 'h-14 md:h-16' : 'h-9 md:h-11';
+  const heightClass = size === 'footer' ? 'h-16 md:h-20' : 'h-11 md:h-14';
+  const maxWidthClass = size === 'footer' ? 'max-w-[min(100%,20rem)]' : 'max-w-[min(100%,17rem)]';
 </script>
 
 <a
@@ -21,9 +22,9 @@
   <img
     src="/images/yaz-logo.png"
     alt={siteName}
-    class="w-auto max-w-[min(100%,14rem)] object-contain object-left {heightClass}"
-    width="280"
-    height="112"
+    class="w-auto {maxWidthClass} object-contain object-left {heightClass}"
+    width="889"
+    height="857"
     decoding="async"
     fetchpriority={size === 'nav' ? 'high' : 'auto'}
   />

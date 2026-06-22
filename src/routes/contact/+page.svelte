@@ -58,12 +58,12 @@
 <!-- CONTACT GRID -->
 <section class="bg-surface py-16 md:py-24 px-4 md:px-10">
   <div
-    class="container mx-auto w-full grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,4fr)_minmax(0,3fr)] gap-8 lg:gap-10 items-start"
+    class="container mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start"
   >
     <!-- FORM -->
-    <div class="min-w-0">
+    <div class="min-w-0 lg:col-span-5">
       <FadeUp>
-        <div class="bg-white p-6 md:p-8 rounded-xl border border-line shadow-sm">
+        <div class="bg-white p-6 md:p-8 rounded-xl border border-line shadow-sm h-full">
         {#if sent}
           <div class="text-center py-12">
             <div

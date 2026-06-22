@@ -1,0 +1,6 @@
+# pnpm 11+ moved package-level settings out of package.json into this file,
+# even for non-workspace projects. We have no workspace packages here —
+# this file is only used to approve native-build packages.
+allowBuilds:
+  esbuild: true
+  sharp: true

@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:\\\\Users\\\\USER\\\\yaz_about\" 2>&1 | head -50; echo \"---\"; ls -la \"C:\\\\Users\\\\USER\\\\Desktop\\\\YAZ_ABOUT\" 2>&1 | head -50)",
+      "Bash(pnpm --version)",
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm check *)",
+      "Bash(pnpm dev *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} | %{size_download}B | %{time_total}s\\\\n\" http://127.0.0.1:5173/)",
+      "Bash(curl -s http://127.0.0.1:5173/)",
+      "Bash(cd \"C:\\\\Users\\\\USER\\\\yaz_about\" && rm .pnpmfile.cjs && ls -la | wc -l && echo \"files cleaned\")",
+      "Read(//c/Users/USER/Downloads/**)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\USER\\\\yaz_about\\\\_stitch\")",
+      "Bash(powershell -NoProfile -Command \"Expand-Archive -LiteralPath 'C:\\\\Users\\\\USER\\\\Downloads\\\\stitch_yaz_development_digital_ecosystem \\(1\\).zip' -DestinationPath '.' -Force\")",
+      "Bash(xargs ls -la)",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(ls -la /c/Users/USER/Desktop/YAZ_ABOUT/ 2>&1 | head -50)",
+      "Bash(curl -s --cookie \"yaz_lang=ar\" -o /dev/null -w \"HTTP %{http_code} | %{size_download}B\\\\n\" http://127.0.0.1:5173/)",
+      "Bash(curl -s --cookie \"yaz_lang=ar\" http://127.0.0.1:5173/)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(powershell -NoProfile -Command 'Get-NetTCPConnection -LocalPort 5173 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; Start-Sleep -Milliseconds 500; Get-NetTCPConnection -LocalPort 5173 -ErrorAction SilentlyContinue | Measure-Object | Select-Object -ExpandProperty Count')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:5173/)",
+      "Bash(ls -lt \"C:\\\\Users\\\\USER\\\\Downloads\" 2>&1 | head -15 && echo \"---DESKTOP---\" && ls -lt \"C:\\\\Users\\\\USER\\\\Desktop\" 2>&1 | head -10 && echo \"---RECENT TEMP IMAGES---\" && find \"C:\\\\Users\\\\USER\\\\AppData\\\\Local\\\\Temp\" -name \"*.jpg\" -o -name \"*.png\" -o -name \"*.jpeg\" -mmin -30 2>/dev/null | head -10)",
+      "Bash(grep -iE '\\\\.\\(jpg|jpeg|png\\)$')",
+      "Bash(cp \"C:/Users/USER/Downloads/about-us-500x287-2.webp\" \"C:/Users/USER/yaz_about/static/images/about-surveyor.webp\" && ls -la \"C:/Users/USER/yaz_about/static/images/\")"
+    ]
+  }
+}

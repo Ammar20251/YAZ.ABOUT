@@ -1,0 +1,14 @@
+.svelte-kit
+build
+dist
+node_modules
+.vercel
+drizzle
+src/lib/paraglide
+pnpm-lock.yaml
+package-lock.json
+*.min.*
+*.lock
+coverage
+playwright-report
+test-results

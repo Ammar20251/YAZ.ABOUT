@@ -1,0 +1,179 @@
+/* ─────────────────────────────────────────────────────────────
+ * YAZ Development — Global stylesheet (Tailwind 4)
+ * - tokens.css defines CSS variables
+ * - @theme below maps those variables into Tailwind utilities
+ * - Keep this file thin; component-specific CSS lives next to components.
+ * ───────────────────────────────────────────────────────────── */
+
+@import 'tailwindcss';
+@import './tokens.css';
+@import './fonts.css';
+
+@theme {
+  /* Colors → bg-*, text-*, border-*, etc. */
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-ink-3: var(--color-ink-3);
+  --color-line: var(--color-line);
+  --color-brand-teal: var(--color-brand-teal);
+  --color-deep-teal: var(--color-deep-teal);
+  --color-abyss-teal: var(--color-abyss-teal);
+  --color-sky-tint: var(--color-sky-tint);
+  --color-mint-tint: var(--color-mint-tint);
+  --color-sand: var(--color-sand);
+  --color-lime: var(--color-lime);
+  --color-lime-deep: var(--color-lime-deep);
+  --color-lime-bright: var(--color-lime-bright);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-focus: var(--color-focus);
+
+  /* Fonts → font-display, font-body, font-mono */
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  /* Container */
+  --container-max-w: var(--container-max);
+
+  /* Radii → rounded-sm / -md / -lg / -xl / -pill */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-pill: var(--radius-pill);
+
+  /* Shadows → shadow-sm / -md / -lg */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+}
+
+/* ── Base resets / type defaults ───────────────────────────── */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--text-body-lh);
+    color: var(--color-ink);
+    background: var(--color-bg);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  a {
+    color: var(--color-brand-teal);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+  a:hover {
+    color: var(--color-deep-teal);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: var(--color-sky-tint);
+    color: var(--color-abyss-teal);
+  }
+  img, svg, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* prefers-reduced-motion → wipe transitions globally; GSAP modules have their own branch */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ── Utilities not worth a Tailwind plugin ─────────────────── */
+@layer utilities {
+  .text-display {
+    font-size: var(--text-display);
+    line-height: var(--text-display-lh);
+    letter-spacing: -0.02em;
+  }
+  .text-h1 { font-size: var(--text-h1); line-height: var(--text-h1-lh); letter-spacing: -0.015em; }
+  .text-h2 { font-size: var(--text-h2); line-height: var(--text-h2-lh); letter-spacing: -0.01em; }
+  .text-h3 { font-size: var(--text-h3); line-height: var(--text-h3-lh); }
+  .text-body-lg { font-size: var(--text-body-lg); line-height: var(--text-body-lg-lh); }
+  .text-body { font-size: var(--text-body); line-height: var(--text-body-lh); }
+  .text-small { font-size: var(--text-small); line-height: var(--text-small-lh); }
+  .text-eyebrow {
+    font-size: var(--text-eyebrow);
+    line-height: var(--text-eyebrow-lh);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .text-label-mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-label-mono);
+    line-height: var(--text-label-mono-lh);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .container { max-width: var(--container-max); }
+
+  /* ── Decorative motifs (Stitch framework "Geodetic Mesh Patterns") ── */
+  .mesh-pattern {
+    background-image: radial-gradient(circle at 2px 2px, rgba(14, 116, 144, 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+  .contour-lines {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q 25 25, 50 50 T 100 50' fill='none' stroke='rgba(14, 116, 144, 0.03)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* Hover lift — DESIGN.md §1.4 + Stitch framework "Ambient Depth" */
+  .hover-lift {
+    transition:
+      transform var(--dur-3) var(--ease-emphasis),
+      box-shadow var(--dur-3) var(--ease-emphasis);
+    will-change: transform;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hover-lift:hover { transform: none; }
+  }
+
+  .skip-link {
+    position: absolute;
+    inset-inline-start: -9999px;
+    top: 0;
+    z-index: 9999;
+    background: var(--color-brand-teal);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  .skip-link:focus {
+    inset-inline-start: 0;
+  }
+}

@@ -1,0 +1,50 @@
+# Build outputs
+.svelte-kit
+build
+dist
+.vercel
+.netlify
+.output
+
+# Dependencies
+node_modules
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Test artifacts
+coverage
+test-results
+playwright-report
+playwright/.cache
+
+# Paraglide generated runtime
+src/lib/paraglide
+
+# Vite cache
+.vite
+
+# Misc
+*.tsbuildinfo
+
+# Stitch export — visual reference only, NEVER ship per DESIGN.md §7
+_stitch/

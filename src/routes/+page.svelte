@@ -63,6 +63,13 @@
     { value: 10, suffix: '', label: 'Years' },
     { value: 30, suffix: '+', label: 'Survey Teams' }
   ];
+
+  const impact = [
+    { value: 221, suffix: '+', label: 'Projects Done' },
+    { value: 262, suffix: '+', label: 'Customers' },
+    { value: 14, suffix: '+', label: 'Projects In Process' },
+    { value: 255, suffix: '+', label: 'Satisfied Clients' }
+  ];
 </script>
 
 <!-- HERO -->
@@ -151,10 +158,34 @@
   </div>
 </section>
 
+<!-- IMPACT — By the Numbers -->
+<section class="bg-white py-16 md:py-24 px-4 md:px-10 border-y border-line" id="impact">
+  <div class="container mx-auto">
+    <FadeUp>
+      <p class="text-eyebrow text-brand-teal text-center">By the Numbers</p>
+      <h2 class="mt-3 font-display text-h1 text-ink text-center max-w-2xl mx-auto">
+        A decade measured in delivered ground truth.
+      </h2>
+    </FadeUp>
+
+    <div class="mt-12 md:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
+      <FadeUp autoStagger class="contents">
+        {#each impact as s (s.label)}
+          <div class="flex flex-col items-center text-center">
+            <CountUp
+              to={s.value}
+              suffix={s.suffix}
+              duration={2}
+              class="font-display font-bold text-brand-teal leading-none
+                     text-[clamp(3rem,8vw+1rem,6rem)]"
+            />
+            <span class="mt-4 text-body-lg text-ink font-medium">{s.label}</span>
+          </div>
+        {/each}
+      </FadeUp>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <AboutYaz />
-
-<!-- PLACEHOLDER -->
-<section class="container mx-auto px-4 md:px-10 py-16 md:py-24">
-  <p class="text-small text-ink-3">Phase 1 placeholder · Projects, Devices, Vision 2030 split, Leadership, CTA band land in Phase 3.</p>
-</section>

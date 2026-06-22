@@ -24,7 +24,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:5173/)",
       "Bash(ls -lt \"C:\\\\Users\\\\USER\\\\Downloads\" 2>&1 | head -15 && echo \"---DESKTOP---\" && ls -lt \"C:\\\\Users\\\\USER\\\\Desktop\" 2>&1 | head -10 && echo \"---RECENT TEMP IMAGES---\" && find \"C:\\\\Users\\\\USER\\\\AppData\\\\Local\\\\Temp\" -name \"*.jpg\" -o -name \"*.png\" -o -name \"*.jpeg\" -mmin -30 2>/dev/null | head -10)",
       "Bash(grep -iE '\\\\.\\(jpg|jpeg|png\\)$')",
-      "Bash(cp \"C:/Users/USER/Downloads/about-us-500x287-2.webp\" \"C:/Users/USER/yaz_about/static/images/about-surveyor.webp\" && ls -la \"C:/Users/USER/yaz_about/static/images/\")"
+      "Bash(cp \"C:/Users/USER/Downloads/about-us-500x287-2.webp\" \"C:/Users/USER/yaz_about/static/images/about-surveyor.webp\" && ls -la \"C:/Users/USER/yaz_about/static/images/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:5173)"
     ]
   }
 }

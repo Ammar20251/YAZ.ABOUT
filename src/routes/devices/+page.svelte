@@ -14,8 +14,6 @@
     badgeTone?: 'brand' | 'lime';
     category: Exclude<Category, 'All'>;
     features: string[];
-    imageSrc: string;
-    imageAlt: string;
   }
 
   const devices: Device[] = [
@@ -25,19 +23,13 @@
       badge: 'NEW',
       badgeTone: 'brand',
       category: 'GNSS RTK',
-      features: ['IMU Tilt Survey', '1408 Channels', 'OLED Display'],
-      imageAlt: 'Hi-Target iRTK5 GNSS receiver with bright orange top dome and matte black body',
-      imageSrc:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAgBArX1VRNy8uuksSVcV9P66IiR8Ue3_sA2y86VhEr1TSp5qBLJwdw0a3dFEQeMmKm5WccjNQ6FcOo3UIrpL4XEnffGIjiwFI6cIGPuu_GYfCa13Mtwjb1tU4RABSzAota9DS171GwbhnQDO2E3K9HR5H2APDO9aefwsx9u1hbldwY8EBN8kHd_BbAPEk_GZ22lQ3R8gMGkczikcq5bsxgBYjX5aekEWEH5utinvUHelCudSa8qrTqVIQNFz6W77cVlX4APoFxkY8'
+      features: ['IMU Tilt Survey', '1408 Channels', 'OLED Display']
     },
     {
       model: 'V500',
       tagline: 'Compact Network RTK Receiver',
       category: 'GNSS RTK',
-      features: ['Lightweight Design', 'Long Battery Life', 'Web UI'],
-      imageAlt: 'Hi-Target V500 GNSS receiver with sleek grey and black casing',
-      imageSrc:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBhEUDs_iUvi7jnwJEf-kZUo-HRY5bLVTxvwc5NrD1_9_XwSUHTTpBgUtIL71HNjuQn_MHjOSzRUj6_EbmGEiRPRRL6qFEoUgx4TtlAhIVvbKfh8s-iqklFYhE7Fgqe2qe4PsvWvBSmDX9zlw4K4Xs5-XuUnUNOymAbccm947lOaN1xwGrVHkKHQl12c4xUnu6aaP3ZUSO02Z9m4dBqek6-JPTZuimtwwG7WZ9BXOfCG1fTmN-qVmvjqnjr1Ur-e9p5WyqfIjJrPRM'
+      features: ['Lightweight Design', 'Long Battery Life', 'Web UI']
     },
     {
       model: 'HTS-720',
@@ -45,19 +37,13 @@
       badge: 'POPULAR',
       badgeTone: 'lime',
       category: 'Total Stations',
-      features: ['5.5" Touch Screen', '2" Accuracy', '1000m Reflectorless'],
-      imageAlt: 'Hi-Target HTS-720 Total Station with prominent telescope and touchscreen',
-      imageSrc:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuCTK2tNZcGntVQMGbQHTAp47BLFwO0RfZalbA9YNEjzAQThwWL1W_t-ZdprjxnGnE7osTj3JNxVBJNZvNs6BoyDBlz1POG0p0cpr3bKce_vJn2SO7PqApIu_8wLHblCZbwcDx6oPepQ1D_T4qIcx8htsVjbyEE9C0ZBzsmmr-J_OmAnte1akXFcafOdqbrOqGAWnk_RcIwi6xyYnDdcKRV-LGU6JCinLMcQJFU10t4zaffrog8XPwJmpuqASKSJpqCyGKOpZ-VpyjY'
+      features: ['5.5" Touch Screen', '2" Accuracy', '1000m Reflectorless']
     },
     {
       model: 'iHand55',
       tagline: 'Professional Field Controller',
       category: 'Controllers',
-      features: ['Android 10', 'IP68 Rugged', 'Physical Keypad'],
-      imageAlt: 'Hi-Target iHand55 field controller resembling a rugged tablet',
-      imageSrc:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAZH-9IwPERAUxxri5p1nlzDQSj9zkWS8hV_RAP8VtsiH4TaEOackI65c_j65tbNSbiFr1WP_9AObkAE7Hig9RrLTlEKMk6htA3JQnLMNx-5kHG1b8L_GFsgfJNGhZOHPJATZXZXR4C3vRE15oFgut32_pMwMigaxD-0rS7RlF9hzBptYhD1ajIjulUa-pVRj1An1IvMHQRjEP1tOWCgwLJIMxLm7b9zZ7kwcjH0OvzvyRtJIP3zbSNpRZiPBgrJqCI8AIqBCxqjdo'
+      features: ['Android 10', 'IP68 Rugged', 'Physical Keypad']
     }
   ];
 
@@ -133,16 +119,9 @@
             class="hover-lift bg-white rounded-xl p-6 border border-line flex flex-col h-full group"
           >
             <div
-              class="bg-sky-tint rounded-lg h-64 mb-6 flex items-center justify-center relative overflow-hidden"
-            >
-              <img
-                class="h-48 object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-                alt={d.imageAlt}
-                src={d.imageSrc}
-              />
-            </div>
+              class="bg-sky-tint rounded-lg h-64 mb-6 flex items-center justify-center border border-brand-teal/10"
+              aria-hidden="true"
+            ></div>
             <div class="flex-grow">
               <div class="flex justify-between items-start mb-2 gap-2">
                 <h3 class="font-display text-h2 text-ink">{d.model}</h3>

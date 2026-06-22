@@ -1,5 +1,6 @@
 <script lang="ts">
   import { env } from '$env/dynamic/public';
+  import Logo from '$components/layout/Logo.svelte';
 
   const siteName = env.PUBLIC_SITE_NAME ?? 'YAZ Development';
   const phone1 = env.PUBLIC_CONTACT_PHONE_1 ?? '+966 55 393 2623';
@@ -42,7 +43,7 @@
   <div class="container mx-auto px-4 md:px-10 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8">
     <!-- Brand col -->
     <div class="md:col-span-4 flex flex-col gap-4">
-      <a href="/" class="font-display text-h2 font-bold text-brand-teal" aria-label={siteName}>YAZ</a>
+      <Logo size="footer" />
       <p class="text-body text-ink-2 max-w-sm">
         Surveying, construction, and the exclusive Hi-Target distributor in Saudi Arabia.
       </p>

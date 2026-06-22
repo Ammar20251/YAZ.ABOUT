@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
-  import { env } from '$env/dynamic/public';
   import Button from '$components/ui/Button.svelte';
+  import Logo from '$components/layout/Logo.svelte';
 
   let scrolled = $state(false);
   onMount(() => {
@@ -13,8 +13,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   });
-
-  const siteName = env.PUBLIC_SITE_NAME ?? 'YAZ Development';
 
   const links = [
     { href: '/', label: 'Home' },
@@ -40,11 +38,7 @@
          {scrolled ? 'border-b border-line shadow-sm' : 'border-b border-transparent'}"
 >
   <div class="container mx-auto flex items-center justify-between gap-6 w-full">
-    <a
-      href="/"
-      class="font-display text-h3 font-bold text-brand-teal hover:opacity-80 transition-opacity"
-      aria-label={siteName}
-    >YAZ</a>
+    <Logo />
 
     <div class="hidden md:flex items-center gap-2">
       {#each links as link (link.href)}

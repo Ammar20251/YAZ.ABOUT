@@ -107,7 +107,12 @@
     <div class="container mx-auto px-4 md:px-10 py-4 flex flex-wrap items-center justify-between gap-4 text-label-mono text-deep-teal">
       {#each stats as s (s.label)}
         <span class="flex items-center gap-2">
-          <CountUp to={s.value} suffix={s.suffix} class="text-h3 font-display text-brand-teal" />
+          <CountUp
+            to={s.value}
+            suffix={s.suffix}
+            start="top bottom"
+            class="text-h3 font-display text-brand-teal"
+          />
           <span class="uppercase">{s.label}</span>
         </span>
       {/each}

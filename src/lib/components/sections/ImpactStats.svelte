@@ -43,6 +43,7 @@
               to={s.value}
               suffix={s.suffix}
               duration={2}
+              start="top 90%"
               class="font-display font-bold text-brand-teal leading-none
                      text-[clamp(3rem,8vw+1rem,6rem)]"
             />

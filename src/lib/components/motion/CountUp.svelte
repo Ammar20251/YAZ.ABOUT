@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { motionContext, gsap, loadScrollTrigger } from '$animations/gsap';
+  import { gsap } from '$animations/gsap';
+  import { countUp } from '$animations/counters';
   import { fmtNumber } from '$utils/format';
 
   interface Props {
@@ -12,38 +13,54 @@
     duration?: number;
     /** Optional suffix (e.g. '+', '%'). */
     suffix?: string;
+    /** ScrollTrigger start string. */
+    start?: string;
     class?: string;
   }
 
-  let { to, from = 0, duration = 1.6, suffix = '', class: extra = '' }: Props = $props();
+  let {
+    to,
+    from = 0,
+    duration = 1.6,
+    suffix = '',
+    start = 'top 85%',
+    class: extra = ''
+  }: Props = $props();
+
   let el: HTMLSpanElement | undefined = $state();
-  // Display tracks the live count; initial value is the `from` snapshot at mount.
   // svelte-ignore state_referenced_locally
   let display = $state(fmtNumber(from));
 
   onMount(() => {
     if (!el) return;
-    const counter = { v: from };
-    const cleanup = motionContext(
-      el,
-      () => {
-        void loadScrollTrigger().then(() => {
-          gsap.to(counter, {
-            v: to,
-            duration,
-            ease: 'power2.out',
-            onUpdate: () => {
-              display = fmtNumber(Math.round(counter.v));
-            },
-            scrollTrigger: { trigger: el!, start: 'top 85%', once: true }
-          });
-        });
-      },
-      () => {
-        display = fmtNumber(to);
-      }
-    );
-    return cleanup;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      display = fmtNumber(to);
+      return;
+    }
+
+    let disposed = false;
+    let disposeTween: (() => void) | null = null;
+    const ctx = gsap.context(() => {
+      void countUp(el!, to, {
+        from,
+        duration,
+        start,
+        onUpdate: (v) => {
+          display = fmtNumber(v);
+        }
+      }).then((dispose) => {
+        if (disposed) dispose();
+        else disposeTween = dispose;
+      });
+    }, el);
+
+    return () => {
+      disposed = true;
+      disposeTween?.();
+      ctx.revert();
+    };
   });
 </script>
 
